@@ -1,0 +1,41 @@
+/*Sets are containers which store only unique values and permit easy look ups. The values in the sets are stored in some specific order (like ascending or descending). Elements can only be inserted or deleted, but cannot be modified. We can access and traverse set elements using iterators just like vectors*/
+
+#include<iostream>
+#include<set>
+using namespace std;
+int main()
+{
+    set<int> s1;
+    int ax[]={1,2,3,4,5,5};
+    set<int> s2(ax,ax+6);
+    set<int> s3(s2);
+    set<int> s4(s3.begin(),s3.end());
+    set<int> :: iterator it;
+    for(it=s4.begin();it!=s4.end();it++)
+    cout<<*it<<" ";
+    cout<<endl;
+    
+    /*sets will only contains the unique elements in a particular 
+     ascending or descending order of elements......below example is given here*/
+
+     set<int> x;
+     int arr[]={3,2,4,5,6,1};
+     for(int i=0;i<7;i++)
+     {
+         x.insert(arr[i]);
+         
+     }
+     /*here elements are inserted random order but after printing they
+     automatically get's printed in the form of the ascending order*/
+     set<int>:: iterator il;
+     for(it=x.begin();it!=x.end();it++)
+     cout<<*it<<" ";
+    
+    
+    
+    return 0;
+}
+
+outputs:
+1 2 3 4 5
+1 2 3 4 5

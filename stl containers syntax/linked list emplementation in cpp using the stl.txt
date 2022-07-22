@@ -1,0 +1,42 @@
+LISTS in the cpp:
+
+Linked lists:List is a sequence container which takes constant time in inserting and removing elements. List in STL is implemented as Doubly Link List.
+
+The elements from List cannot be directly accessed. For example to access element of a particular position ,you have to iterate from a known position to that particular position.
+
+Linked list is always Implemented using the doubly linked list in the stl list is the container used to represent the list in cpp
+by default the doubley linked list is implemented in the standard template lib.
+
+#include<iostream>
+#include<list>
+using namespace std;
+int main()
+{
+    list<int> li;
+    list<int>:: iterator it;
+    li.push_back(3);
+    li.push_back(5);
+    
+    li.push_front(4);
+    li.push_front(5);
+    for(it=li.begin();it!=li.end();it++)
+    cout<<*it<<" ";
+    cout<<endl;
+    li.remove(5);
+    for(it=li.begin();it!=li.end();it++)
+    cout<<*it<<" ";
+    cout<<endl;
+    li.push_back(346);
+    li.pop_back();
+    // removes the element from the back
+    li.pop_front();
+    // removes the element from the front of the vector
+    for(it=li.begin();it!=li.end();it++)
+    cout<<*it<<" "<<endl;
+return 0;
+}
+
+outputs are:
+5 4 3 5 
+4 3 
+3 

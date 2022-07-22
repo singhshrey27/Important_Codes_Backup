@@ -1,0 +1,28 @@
+ Pair is a container which can be used to bind two different values
+ which may the different types.Pair provides a way to store two hetrogeneous objects as a single unit 
+
+#include <iostream>
+#include<utility>
+using namespace std;
+int main() {
+   
+    pair<int,char> p;
+    pair<int,char > p1(2,'b');
+    p=make_pair(1,'a');
+
+    // here the make pair is used to intialize a pair with some value
+
+    cout<<p.first<<" "<<p.second<<endl;
+    cout<<p1.first<<' '<<p1.second<<endl;
+
+    //here the first and second are used to access the elements 
+    of the pair
+    
+    
+
+    return 0;
+}
+
+output:
+1 a
+2 b
