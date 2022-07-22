@@ -1,0 +1,59 @@
+Q: to find the minimum operations to make the array equal
+first approach-> brute force appraoch by using two loops O(n2)
+
+#include<iostream>
+using namespace std;
+int countminop(int arr[],int size)
+{
+    int maxcount=0;
+for(int i=0;i< size;i++)
+{
+    int count=1;
+    /*if there is a element exists in the array then already the 
+    count is one*/
+    for(int j=i+1;j<size;j++)
+    {
+        if(arr[i]==arr[j])
+        count++;
+    }
+    if(count>maxcount)
+    maxcount=count;
+}
+return (size-maxcount);
+}
+int main()
+{
+     int arr[] = {1, 5, 2, 1, 3, 2, 1};
+     int n=sizeof(arr)/sizeof(arr[0]);
+     cout<<countminop(arr,n);
+    return 0;
+}
+
+second appraoch-> by using the hashing O(n): first find the maximum occurred element from the array and then the required operations are (n-maxoccurence)
+
+#include<iostream>
+#include<unordered_map>
+using namespace std;
+int countminop(int arr[],int size)
+{
+    unordered_map<int,int> mp;
+    for(int i=0;i<size;i++)
+    {
+        mp[arr[i]]++;
+    }
+    int maxcount=0;
+   //auto iterator automatically points to the first element
+    for(auto i: mp)
+    {
+        if(i.second>maxcount)
+        maxcount=i.second;
+    }
+    return (size-maxcount);
+}
+int main()
+{
+     int arr[] = {1, 5, 2, 1, 3, 2, 1};
+     int n=sizeof(arr)/sizeof(arr[0]);
+     cout<<countminop(arr,n);
+    return 0;
+}

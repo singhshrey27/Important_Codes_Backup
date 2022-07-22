@@ -1,0 +1,37 @@
+Q3.To find the maximum distance of two same occurring element in the array:
+First appraoch->By iterating the arrray and doing the difference will give the maximum
+Time complexity is O(n2)
+
+
+Second appraoch->use hashing
+Time complexity reduces to O(n):
+
+//to find the maximum distance between the occuring values in the array
+
+#include<bits/stdc++.h>
+using namespace std;
+  int maximumdist(int arr[],int size)
+  {
+      unordered_map<int,int> mp;
+      int maxdistance=0;
+      for(int i=0;i<size;i++)
+      {
+          //if it is the first occurence of the element then insert in the mssap
+          if(mp.find(arr[i])==mp.end())
+          {
+              mp[arr[i]]=i;
+          }
+          else{
+              maxdistance=max(maxdistance,i-mp[arr[i]]);
+          }
+      }
+   return maxdistance;   
+  }
+  
+  int main()
+  {
+      int a[]= {3, 2, 1, 2, 1, 4, 5, 8, 6, 7, 4, 2};
+      int n=sizeof(a)/sizeof(a[0]);
+      cout<<"The maximum distance is : "<<maximumdist(a,n);
+      return 0;
+  }
